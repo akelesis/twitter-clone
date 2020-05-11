@@ -1,0 +1,72 @@
+.board {
+    width: 343px;
+    height: 500px;
+    margin: 20px 0 0 25px;
+    background-color: rgb(245, 248, 250);
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.board .board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgb(230, 236, 240);
+}
+
+.board .board-header h3 {
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.board .board-header i {
+    padding-right: 15px;
+    font-size: 20px;
+    color: rgb(29, 150, 255);
+}
+
+
+
+.board .board-card {
+    border-bottom: 1px solid rgb(230, 236, 240);
+    padding: 10px 0;
+    transition: background-color .3s;
+}
+
+.board .board-card small,
+.board .board-card h3,
+.board .board-card p {
+    padding: 0 15px;
+    margin: 0;
+}
+
+.board .board-card h3 {
+    font-size: 16px;
+}
+
+.board .board-card small,
+.board .board-card p {
+    color: #779;
+}
+
+.board .board-card:hover {
+    cursor: pointer;
+    background-color: rgb(237, 240, 242);
+}
+
+.board .board-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+    height: 40px;
+    color: rgb(29, 150, 255);
+}
+
+.board .board-footer:hover {
+    cursor: pointer;
+    background-color: rgb(237, 240, 242);
+}

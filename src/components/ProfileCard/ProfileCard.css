@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
+.cover-pic {
+    height: 250px;
+    background-color: #556;
+}
+
+.profile-pic-box {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 160px;
+    margin-top: -80px;
+}
+
+.profile-pic-box .profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-left: 20px;
+    background-color: #fff;
+}
+
+.profile-pic-box .profile-pic img {
+    width: 94%;
+    height: 94%;
+    border-radius: 50%;
+    transition: filter .3s;
+}
+
+.profile-pic-box .profile-pic:hover{
+    cursor: pointer;
+}
+
+.profile-pic-box .profile-pic img:hover {
+    filter: contrast(80%);
+}
+
+.edit-profile-button {
+    margin-right: 30px;
+    border: 1px solid rgb(29, 161, 242);
+    color: rgb(29, 161, 242);
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px;
+    height: 40px;
+    width: 150px;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 20px;
+    align-self: flex-end;
+    font-family: 'Arimo', sans-serif;
+    outline: none;
+    transition: background-color .3s;
+}
+
+.edit-profile-button:hover {
+    background-color: rgba(232, 245, 254);
+    cursor: pointer;
+}
+
+.profile-info .user-name {
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+.profile-info .user-id {
+    margin: 0 20px;
+    font-size: 15px;
+    color: #777;
+}
+
+.personal-info{
+    display: flex;
+    margin-left: 20px;
+}
+
+.personal-info .join-info, 
+.personal-info .birth-info, 
+.personal-info .location-info {
+    display: flex;
+    align-items: center;
+}
+
+.personal-info .join-info p, 
+.personal-info .birth-info p, 
+.personal-info .location-info p{
+    margin: 8px 20px 5px 5px;
+    color: #779;
+}
+
+.social-info{
+    display: flex;
+    margin-left: 20px;
+}
+
+.follow {
+    margin-right: 20px;
+    color: #779;
+}
+
+.follow strong{
+    color: #000;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddf;
+}
+
+.tweets-navigation {
+    width: stretch;
+    text-align: center;
+    font-size: 15px;
+    color: #779;
+    transition: background-color .3s, color .3s;
+}
+
+.tweets-navigation:hover{
+    background-color: rgba(232, 245, 254);
+    color: rgb(26, 136, 204);
+    cursor: pointer;
+}

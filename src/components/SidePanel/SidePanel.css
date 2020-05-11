@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
+.search-bar {
+    margin: 10px 0 0 25px;
+    height: 30px;
+    padding: 5px 5px 5px 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(230, 236, 240);
+    width: 300px;
+    font-family: 'Arimo', sans-serif;
+    outline: none;
+}
+
+.search-bar:focus {
+    background-color: #fff;
+    border: 1px solid rgb(29, 161, 242);
+}
+
+#search-icon {
+    position: absolute;
+    margin: 20px 0 0 38px;
+    color: #777;
+}
+
+#search-icon:focus {
+    color: rgb(29, 161, 242);
+}
+
+.close-btn {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: rgb(29, 161, 242);
+    color: #fff;
+    margin: 18px 0 0 332px;
+    display: none;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    background-color: rgb(29, 150, 255);
+}
+
+.close-btn i {
+    margin: 4px 1px 0 0;
+}
+
+.search-options {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    width: 340px;
+    height: 100px;
+    margin-left: 27px;
+    box-shadow: 1px 1px 10px #777;
+    background-color: #fff;
+    display: none;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.search-options p {
+    font-size: 15px;
+    color: #777;
+}
