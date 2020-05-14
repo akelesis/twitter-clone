@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+
+.modal-tweet {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7795;
+    top: 0;
+    left: 0;
+}
+
+.modal-field {
+    width: 600px;
+    height: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eef;
+    padding: 13px 10px 10px 20px;
+}
+
+.modal-tweet .close-button {
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-tweet .close-button:hover {
+    background-color: rgba(232, 245, 254);
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+}
+
+.modal-pic-box {
+    width: 80px;
+    min-height: 150px;
+    height: auto;
+}
+
+.modal-pic {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0 0 20px;
+    border-radius: 50%;
+    background-color: #779;
+}
+
+.modal-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.modal-text-area {
+    width: 500px;
+    min-height: 50px;
+    height: auto;
+}
+
+.modal-text-area textarea {
+    margin-top: 20px;
+    width: stretch;
+    height: stretch;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-family: 'Arimo', sans-serif;
+    resize: none;
+}
+
+.modal-text-area textarea::placeholder {
+    color: #cce;
+}
+
+.modal-footer {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal-footer .modal-tweet-button {
+    margin-right: 20px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgb(26, 136, 204);
+    font-weight: 700;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.counter-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.tweet-counter {
+    color: #779;
+}

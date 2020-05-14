@@ -3,6 +3,7 @@
     padding: 10px;
     display: flex;
     align-items: flex-start;
+    border-bottom: 1px solid #ddf;
 }
 
 .tweet-pic-box {
@@ -18,6 +19,18 @@
     border-radius: 50%;
 }
 
+.tweet-pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: filter .3s;
+}
+
+.tweet-pic img:hover {
+    filter: contrast(80%);
+    cursor: pointer;
+}
+
 .tweet-header {
     display: flex;
     margin: 0;
@@ -26,6 +39,10 @@
 .tweet-message {
     display: flex;
     margin: 0 10px;
+}
+
+.tweet-box-text {
+    width: stretch;
 }
 
 .user-nick {
@@ -38,13 +55,15 @@
 }
 
 .tweet .user-id {
-    margin: 0 10px;
+    margin: 0;
     color: #779;
 }
 
 .tweet-reactions {
     display: flex;
     width: stretch;
+    height: 30px;
+    padding-top: 10px;
     justify-content: space-between;
 }
 
@@ -70,10 +89,36 @@
     font-size: 18px;
 }
 
-.blue .tweet-reaction-icon:hover {
-    color: rgb(26, 136, 204);
+.tweet-reaction-module:hover{
+    cursor: pointer;
 }
 
-.tweet-icon-box:hover {
+.red, .gree, .blue {
+    transition: background-color .3s;
+}
+
+.blue:hover p,
+.blue:hover .tweet-reaction-icon {
+    color: rgb(26, 136, 204);
+}
+.blue:hover .tweet-icon-box{
     background-color: rgba(232, 245, 254);
+}
+
+.green:hover p,
+.green:hover .tweet-reaction-icon {
+    color: rgb(26, 204, 106);
+}
+
+.green:hover .tweet-icon-box{
+    background-color: rgb(232, 254, 237);
+}
+
+.red:hover p,
+.red:hover .tweet-reaction-icon {
+    color: rgb(204, 26, 64);
+}
+
+.red:hover .tweet-icon-box{
+    background-color: rgb(254, 232, 239);
 }

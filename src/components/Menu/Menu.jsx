@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from 'react-redux'
 import "./Menu.css";
 
 import { IconContext } from "react-icons";
@@ -16,7 +17,7 @@ import { MdExpandMore } from "react-icons/md";
 
 const defaultStyle = { className: 'react-icons' };
 
-const menu = (props) => {
+const Menu = (props) => {
   return (
     <div className="main-menu" id="main-menu">
       <div className="main-menu-box">
@@ -103,4 +104,8 @@ const menu = (props) => {
   );
 };
 
-export default menu;
+const mapStateToProps = (state) => {
+  
+}
+
+export default connect()(Menu);

@@ -7,7 +7,7 @@ const Board = (props) => {
         <div className="board">
             <div className="board-header">
                 <h3>Brazil Trends</h3>
-                <i class="fas fa-cog"></i>
+                <i className="fas fa-cog"></i>
             </div>
             <div className="board-card">
                 <small>1 . Trending</small>

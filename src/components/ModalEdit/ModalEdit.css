@@ -1,0 +1,197 @@
+.modal-edit {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #7799;
+}
+
+.edit-container {
+    width: 33vw;
+    height: 65vh;
+    border-radius: 10px;
+    background-color: #fff;
+    
+}
+
+.edit-header {
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid #ddf;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-header .close-button {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .3s;
+}
+
+.edit-header .close-button:hover {
+    background-color: rgba(232, 245, 254);
+    cursor: pointer;
+}
+
+.edit-header button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background-color: rgb(26, 136, 204);
+    color: #fff;
+    margin-right: 20px;
+    transition: background-color .3s;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.edit-header button:hover {
+    cursor: pointer;
+    background-color: rgb(15, 120, 204);
+}
+
+.edit-body {
+    height: 58vh;
+    overflow-y: auto;
+}
+
+.title-container {
+    margin-left: 20px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
+.cover-pic-overlay {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    height: 50px;
+}
+
+.modal-edit .cover-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-edit .profile-pic {
+    position: relative;
+    background-color: #fff;
+}
+
+.profile-pic-overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+
+.modal-edit .profile-pic img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(70%);
+}
+
+.modal-edit .profile-pic:hover {
+    cursor: unset;
+}
+
+.icon-edit{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    transition: background-color .3s;
+}
+
+.icon-edit:hover {
+    background-color: #7799;
+    cursor: pointer;
+}
+
+.edit-form {
+    padding: 20px;
+    width: stretch;
+}
+
+.edit-input-textarea,
+.edit-input {
+    background-color: rgba(232, 245, 254);
+}
+
+.edit-input-textarea {
+    border-bottom: 2px solid #779;
+    transition: border-bottom .3s;
+}
+
+.edit-input-textarea label,
+.edit-input label {
+    margin: 0 10px;
+    color: #779;
+}
+
+.edit-input input{
+    outline: none;
+    width: stretch;
+    padding: 5px 10px;
+    font-size: 20px;
+    display:block;
+    border: none;
+    border-bottom: 2px solid #779;
+    background-color: rgba(232, 245, 254);
+    transition: border-bottom .3s;
+}
+
+.focus,
+.edit-input input:focus {
+    border-bottom: 2px solid rgb(15, 120, 204);
+}
+
+.edit-input-textarea textarea {
+    background-color: rgba(232, 245, 254);
+    border: none;
+    resize: none;
+    width: stretch;
+    padding: 5px 10px;
+    min-height: 100px;
+    outline: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.edit-counter-container {
+    width: stretch;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-counter{
+    font-size: 20px;
+    color: #779;
+}
+
+#birth-date{
+    color: #779;
+}

@@ -125,3 +125,7 @@
     color: rgb(26, 136, 204);
     cursor: pointer;
 }
+
+.navigation .active {
+    border-bottom: 2px solid rgb(26, 136, 204);
+}

@@ -57,7 +57,7 @@ const profileCard = (props) => {
           </div>
         </div>
         <div className="navigation">
-          <div className="tweets-navigation">
+          <div className="tweets-navigation active">
             <h3>Tweets</h3>
           </div>
           <div className="tweets-navigation">
