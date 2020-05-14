@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from 'react-redux'
+
 import "./ProfileCard.css";
 
 import { IconContext } from "react-icons";
@@ -8,7 +10,12 @@ import { FaCalendarAlt } from "react-icons/fa";
 
 import profilePicture from "../../assets/profile_pic.jpg";
 
+
+
 const profileCard = (props) => {
+  const {userName, userNick, location, birth} = props
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
   return (
     <div className="profile-card">
       <div className="cover-pic"></div>
@@ -19,21 +26,21 @@ const profileCard = (props) => {
         <button className="edit-profile-button">Edit profile</button>
       </div>
       <div className="profile-info">
-        <h4 className="user-name">Marcus Tavares</h4>
-        <p className="user-id">@Marquelesis</p>
+        <h4 className="user-name">{userName}</h4>
+        <p className="user-id">@{userNick}</p>
         <div className="personal-info">
           <div className="location-info">
             <IconContext.Provider
               value={{ style: { fontSize: "15px", color: "#779" } }}
             >
-              <FaMapMarkerAlt /> <p>Itabuna, Bahia</p>
+              <FaMapMarkerAlt /> <p>{location}</p>
             </IconContext.Provider>
           </div>
           <div className="birth-info">
             <IconContext.Provider
               value={{ style: { fontSize: "15px", color: "#779" } }}
             >
-              <FaBirthdayCake /> <p>Born October 1, 1994</p>
+              <FaBirthdayCake /> <p>Born {months[parseInt(birth.slice(5,7)) - 1] + " " + parseInt(birth.slice(8,10)) + ", " + birth.slice(0,4)}</p>
             </IconContext.Provider>
           </div>
           <div className="join-info">
@@ -75,4 +82,13 @@ const profileCard = (props) => {
   );
 };
 
-export default profileCard;
+const mapStateToProps = (state) => {
+  return {
+    userName: state.userName,
+    userNick: state.userNick,
+    location: state.location,
+    birth: state.birth
+  }
+}
+
+export default connect(mapStateToProps)(profileCard);

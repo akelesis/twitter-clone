@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import {changeFlagTweet} from '../../store/actions/flagTweet'
+import {connect} from 'react-redux'
+
 import "./ModalTweet.css";
 import ProfilePicture from "../../assets/profile_pic.jpg";
 
@@ -12,9 +15,10 @@ const ModalTweet = (props) => {
   const [post, setPost] = useState("");
   return (
     <div className="modal-tweet">
+      <div className="modal-overlay" onClick={e => props.flagTweetDispatch(false)}></div>
       <div className="modal-field">
         <div className="modal-header">
-          <div className="close-button">
+          <div className="close-button" onClick={e => props.flagTweetDispatch(false)}>
             <IconContext.Provider
               value={{
                 style: { color: "rgb(26, 136, 204)", fontSize: "25px" },
@@ -51,4 +55,21 @@ const ModalTweet = (props) => {
   );
 };
 
-export default ModalTweet;
+const mapStateToProps = (state) => {
+  return {
+      flagTweet: state.flagTweet,
+      flagEdit: state.tweet
+  }
+}
+
+const mapDispatchToProp = (dispatch) => {
+  return {
+    flagTweetDispatch(newBool){
+      const action = changeFlagTweet(newBool)
+      dispatch(action)
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProp)(ModalTweet);

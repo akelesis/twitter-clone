@@ -1,5 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux'
+import {changeFlagTweet} from '../../store/actions/flagTweet'
+
 import "./Menu.css";
 
 import { IconContext } from "react-icons";
@@ -18,6 +20,8 @@ import { MdExpandMore } from "react-icons/md";
 const defaultStyle = { className: 'react-icons' };
 
 const Menu = (props) => {
+  const {userName, userNick} = props
+
   return (
     <div className="main-menu" id="main-menu">
       <div className="main-menu-box">
@@ -77,7 +81,7 @@ const Menu = (props) => {
             </IconContext.Provider>
             <h3>More</h3>
           </li>
-          <li className="tweet-button">
+          <li className="tweet-button" onClick={e => props.flagTweetDispatch(true)}>
             <h4 className="tweet-text">Tweet</h4>
             <div className="tweet-icon">
                 <IconContext.Provider value={defaultStyle}>
@@ -89,8 +93,8 @@ const Menu = (props) => {
         <div className="user-button">
           <div className="user-picture"></div>
           <div className="user-button-data">
-            <h4 className="user-name">Marcus Tavares</h4>
-            <p className="user-id">@Markelesis</p>
+            <h4 className="user-name">{userName}</h4>
+            <p className="user-id">@{userNick}</p>
           </div>
           <IconContext.Provider value={{ style: { fontSize: "28px" } }}>
             <MdExpandMore />
@@ -104,8 +108,20 @@ const Menu = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  
+const mapDispatchToProp = (dispatch) => {
+  return {
+    flagTweetDispatch(newBool){
+      const action = changeFlagTweet(newBool)
+      dispatch(action)
+    }
+  }
 }
 
-export default connect()(Menu);
+const mapStateToProps = (state) => {
+  return {
+    userNick: state.userNick,
+    userName: state.userName
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProp)(Menu);
