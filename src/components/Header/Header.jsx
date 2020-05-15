@@ -26,7 +26,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        userName: state.userName,
+        userName: state.profile.userName,
         tweetsNumber: state.tweetsNumber
     }
 }

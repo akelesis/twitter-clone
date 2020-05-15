@@ -1,22 +1,54 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { changeFlagEdit } from "../../store/actions/flagEdit";
 import "./ModalEdit.css";
+
+import axios from 'axios'
 
 import { IconContext } from "react-icons";
 import { FiX } from "react-icons/fi";
 import { FiCamera } from "react-icons/fi";
 
-import profilePicture from "../../assets/profile_pic.jpg";
+import { changeProfile } from "../../store/actions/profile";
+import { changeProfilePicture, changeCoverPicture } from "../../store/actions/pictures";
 
 const ModalEdit = (props) => {
-	const [name, setName] = useState("")
-	const [bio, setBio] = useState("")
-	const [location, setLocation] = useState("")
-	const [website, setWebsite] = useState("")
-  const [birth, setBirth] = useState("")
-  
+  const { profile, cover, userName, bio, location, website, birth } = props;
+  const [localName, setName] = useState(userName);
+  const [localBio, setBio] = useState(bio);
+  const [localLocation, setLocation] = useState(location);
+  const [localWebsite, setWebsite] = useState(website);
+  const [localBirth, setBirth] = useState(birth);
+
   const toggleFocus = () => {
-    let bioDiv = document.getElementById('bio-div')
-    bioDiv.classList.contains('focus') ? bioDiv.classList.remove('focus') : bioDiv.classList.add('focus')
+    let bioDiv = document.getElementById("bio-div");
+    bioDiv.classList.contains("focus")
+      ? bioDiv.classList.remove("focus")
+      : bioDiv.classList.add("focus");
+  };
+
+  const uploadCoverPic = (event) => {
+    if(event.files[0]){
+      const fd = new FormData()
+      fd.append('pic', event.files[0])
+      axios.post('http://localhost:4000/upload', fd)
+        .then(res => {
+          props.CoverPicDispatch("http://localhost:4000/" + res.data.path.replace('\\', '/'))
+        })
+      
+    }
+  
+  }
+  const uploadProfilePic = (event) => {
+    if(event.files[0]){
+      const fd = new FormData()
+      fd.append('pic', event.files[0])
+      axios.post('http://localhost:4000/upload', fd)
+        .then(res => {
+          props.ProfilePicDispatch("http://localhost:4000/" + res.data.path.replace('\\', '/'))
+        })
+      
+    }
   }
 
   return (
@@ -24,7 +56,10 @@ const ModalEdit = (props) => {
       <div className="edit-container">
         <div className="edit-header">
           <div className="title-container">
-            <div className="close-button">
+            <div
+              className="close-button"
+              onClick={(e) => props.FlagEditDispatch(false)}
+            >
               <IconContext.Provider
                 value={{
                   style: { color: "rgb(26, 136, 204)", fontSize: "25px" },
@@ -35,19 +70,42 @@ const ModalEdit = (props) => {
             </div>
             <h3>Edit Profile</h3>
           </div>
-          <button>Save</button>
+          <button
+            onClick={(e) =>
+              props.ProfileEditDispatch({
+                userName: localName,
+                bio: localBio,
+                location: localLocation,
+                website: localWebsite,
+                birth: localBirth,
+              })
+            }
+          >
+            Save
+          </button>
         </div>
         <div className="edit-body">
           <div className="profile-card">
             <div className="cover-pic">
+              <img src={cover} alt=""/>
               <div className="cover-pic-overlay">
-                <div className="icon-edit">
-                  <IconContext.Provider
-                    value={{ style: { fontSize: "20px", color: "#fff" } }}
-                  >
-                    <FiCamera />
-                  </IconContext.Provider>
-                </div>
+                <input
+                  onChange={e => uploadCoverPic(e.currentTarget)}
+                  type="file"
+                  name="cover-pic"
+                  accept=".jpg, .png"
+                  id="cover-pic"
+                  style={{ display: "none" }}
+                />
+                <label htmlFor="cover-pic">
+                  <div className="icon-edit">
+                    <IconContext.Provider
+                      value={{ style: { fontSize: "20px", color: "#fff" } }}
+                    >
+                      <FiCamera />
+                    </IconContext.Provider>
+                  </div>
+                </label>
                 <div className="icon-edit">
                   <IconContext.Provider
                     value={{ style: { fontSize: "20px", color: "#fff" } }}
@@ -58,16 +116,27 @@ const ModalEdit = (props) => {
               </div>
             </div>
             <div className="profile-pic-box">
+              <input
+                type="file"
+                name="profile-pic"
+                accept=".jpg, .png"
+                onChange={e => uploadProfilePic(e)}
+                id="profile-pic"
+                style={{ display: "none" }}
+              />
+
               <div className="profile-pic">
-                <img src={profilePicture} alt="" />
+                <img src={profile} alt="" />
                 <div className="profile-pic-overlay">
-                  <div className="icon-edit">
-                    <IconContext.Provider
-                      value={{ style: { fontSize: "20px", color: "#fff" } }}
-                    >
-                      <FiCamera />
-                    </IconContext.Provider>
-                  </div>
+                  <label htmlFor="profile-pic">
+                    <div className="icon-edit">
+                      <IconContext.Provider
+                        value={{ style: { fontSize: "20px", color: "#fff" } }}
+                      >
+                        <FiCamera />
+                      </IconContext.Provider>
+                    </div>
+                  </label>
                 </div>
               </div>
             </div>
@@ -76,8 +145,8 @@ const ModalEdit = (props) => {
             <div className="edit-input">
               <label htmlFor="name">Name</label>
               <input
-								value={name}
-                onChange={e => setName(e.target.value)}
+                value={localName}
+                onChange={(e) => setName(e.target.value)}
                 maxLength="50"
                 type="text"
                 name="name"
@@ -86,13 +155,13 @@ const ModalEdit = (props) => {
               />
             </div>
             <div className="edit-counter-container">
-              <small className="edit-counter">{name.length}/50</small>
+              <small className="edit-counter">{localName.length}/50</small>
             </div>
             <div className="edit-input-textarea" id="bio-div">
               <label htmlFor="bio">Bio</label>
               <textarea
-								value={bio}
-                onChange={e => setBio(e.target.value)}
+                value={localBio}
+                onChange={(e) => setBio(e.target.value)}
                 onFocus={toggleFocus}
                 onBlur={toggleFocus}
                 maxLength="160"
@@ -103,13 +172,13 @@ const ModalEdit = (props) => {
               ></textarea>
             </div>
             <div className="edit-counter-container">
-              <small className="edit-counter">{bio.length}/160</small>
+              <small className="edit-counter">{localBio.length}/160</small>
             </div>
             <div className="edit-input">
               <label htmlFor="location">Location</label>
               <input
-								value={location}
-                onChange={e => setLocation(e.target.value)}
+                value={localLocation}
+                onChange={(e) => setLocation(e.target.value)}
                 maxLength="30"
                 type="text"
                 name="location"
@@ -122,10 +191,10 @@ const ModalEdit = (props) => {
             </div>
             <div className="edit-input">
               <label htmlFor="website">Website</label>
-              <input 
-                value={website} 
+              <input
+                value={localWebsite}
                 type="text"
-                onChange={e => setWebsite(e.target.value)}
+                onChange={(e) => setWebsite(e.target.value)}
                 maxLength="50"
                 name="website"
                 id="website"
@@ -138,9 +207,9 @@ const ModalEdit = (props) => {
             <div className="edit-input">
               <label htmlFor="birth date">Birth date</label>
               <input
-                value={birth}
+                value={localBirth}
                 type="date"
-                onChange={e => setBirth(e.target.value)}
+                onChange={(e) => setBirth(e.target.value) }
                 name="birth-date"
                 id="birth-date"
               />
@@ -152,4 +221,37 @@ const ModalEdit = (props) => {
   );
 };
 
-export default ModalEdit;
+const mapStateToProps = (state) => {
+  return {
+    profile: state.picture.profile,
+    cover: state.picture.cover,
+    userName: state.profile.userName,
+    userNick: state.profile.userNick,
+    bio: state.profile.bio,
+    location: state.profile.location,
+    birth: state.profile.birth,
+  };
+};
+
+const mapDispatchToProp = (dispatch) => {
+  return {
+    FlagEditDispatch(newBool) {
+      const action = changeFlagEdit(newBool);
+      dispatch(action);
+    },
+    ProfileEditDispatch(newInfo) {
+      const action = changeProfile(newInfo);
+      dispatch(action);
+    },
+    ProfilePicDispatch(newPic) {
+      const action = changeProfilePicture(newPic)
+      dispatch(action)
+    },
+    CoverPicDispatch(newPic) {
+      const action = changeCoverPicture(newPic)
+      dispatch(action)
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProp)(ModalEdit);

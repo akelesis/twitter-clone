@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, {useState} from "react";
 import {changeFlagTweet} from '../../store/actions/flagTweet'
+import {changeTweets} from '../../store/actions/tweets'
 import {connect} from 'react-redux'
 
 import "./ModalTweet.css";
@@ -12,7 +12,7 @@ import { IconContext } from "react-icons";
 import { FiX } from "react-icons/fi";
 
 const ModalTweet = (props) => {
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState("")
   return (
     <div className="modal-tweet">
       <div className="modal-overlay" onClick={e => props.flagTweetDispatch(false)}></div>
@@ -38,8 +38,8 @@ const ModalTweet = (props) => {
             <TextareaAutosize
               placeholder="What's happening?"
               value={post}
+              onChange={e => setPost(e.target.value)}
               maxLength="280"
-              onChange={(e) => setPost(e.target.value)}
               style={{ minHeight: "100px" }}
             />
           </div>
@@ -48,7 +48,7 @@ const ModalTweet = (props) => {
           <div className="tweet-counter">
             <p>{280 - post.length}</p>
           </div>
-          <button className="modal-tweet-button">Tweet</button>
+          <button className="modal-tweet-button" onClick={e => props.tweetsDispatch(post)}>Tweet</button>
         </div>
       </div>
     </div>
@@ -57,8 +57,7 @@ const ModalTweet = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-      flagTweet: state.flagTweet,
-      flagEdit: state.tweet
+      post: state.post
   }
 }
 
@@ -66,6 +65,10 @@ const mapDispatchToProp = (dispatch) => {
   return {
     flagTweetDispatch(newBool){
       const action = changeFlagTweet(newBool)
+      dispatch(action)
+    },
+    tweetsDispatch(message){
+      const action = changeTweets(message)
       dispatch(action)
     }
   }

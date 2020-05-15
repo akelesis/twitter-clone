@@ -11,6 +11,7 @@ import profilePicture from "../../assets/profile_pic.jpg";
 const Tweet = (props) => {
 	const { userName, userNick, tweet, date, comments, likes, retweets } = props;
 	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+	console.log(date)
   return (
     <div className="tweet">
       <div className="tweet-pic-box">
@@ -21,7 +22,7 @@ const Tweet = (props) => {
       <div className="tweet-box-text">
         <div className="tweet-header">
           <h4 className="user-nick">{userName}</h4>
-          <p className="user-id">@{userNick} . {months[parseInt(date.slice(0,2)) - 1] + " " + parseInt(date.slice(4,6))}</p>
+          <p className="user-id">@{userNick} . {months[parseInt(date.slice(0,2)) - 1] + " " + parseInt(date.slice(3,5))}</p>
         </div>
         <div className="tweet-message">{tweet}</div>
         <div className="tweet-reactions">

@@ -30,8 +30,8 @@ const Tweets = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    userName: state.userName,
-    userNick: state.userNick,
+    userName: state.profile.userName,
+    userNick: state.profile.userNick,
     tweets: state.tweets
   }
 }

@@ -112,6 +112,12 @@
     font-weight: 700;
     color: #fff;
     margin-left: 10px;
+    transition: background-color .3s;
+}
+
+.modal-footer .modal-tweet-button:hover {
+    cursor: pointer;
+    background-color: rgb(20, 120, 215);
 }
 
 .counter-box {

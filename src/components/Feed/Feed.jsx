@@ -14,7 +14,7 @@ const Feed = (props) => {
 
     return (
         <div className="feed" id="feed">
-            <Header name={props.name} tweetsNumber={props.tweetsNumber}></Header>
+            <Header></Header>
             <ProfileCard></ProfileCard>
             <Tweets></Tweets>
             {flagTweet ? <ModalTweet/> : ""}

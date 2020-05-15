@@ -5,12 +5,19 @@
     background-color: #556;
 }
 
+.cover-pic img {
+    height: 100%;
+    width: 100%;
+    contain: strict;
+}
+
 .profile-pic-box {
     display: flex;
     justify-content: space-between;
     width: auto;
     height: 160px;
     margin-top: -80px;
+    z-index: 2;
 }
 
 .profile-pic-box .profile-pic {
@@ -22,6 +29,7 @@
     border-radius: 50%;
     margin-left: 20px;
     background-color: #fff;
+    z-index: 2;
 }
 
 .profile-pic-box .profile-pic img {
@@ -29,6 +37,7 @@
     height: 94%;
     border-radius: 50%;
     transition: filter .3s;
+    z-index: 2;
 }
 
 .profile-pic-box .profile-pic:hover{

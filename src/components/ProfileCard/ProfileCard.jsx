@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux'
+import {changeFlagEdit} from '../../store/actions/flagEdit'
 
 import "./ProfileCard.css";
 
@@ -8,22 +9,22 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 
-import profilePicture from "../../assets/profile_pic.jpg";
-
 
 
 const profileCard = (props) => {
-  const {userName, userNick, location, birth} = props
+  const {profile, cover, userName, userNick, location, birth} = props
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
   return (
     <div className="profile-card">
-      <div className="cover-pic"></div>
+      <div className="cover-pic">
+        <img src={cover} alt=""/>
+      </div>
       <div className="profile-pic-box">
         <div className="profile-pic">
-          <img src={profilePicture} alt="" />
+          <img src={profile} alt="" />
         </div>
-        <button className="edit-profile-button">Edit profile</button>
+        <button className="edit-profile-button" onClick={e => props.FlagEditDispatch(true)}>Edit profile</button>
       </div>
       <div className="profile-info">
         <h4 className="user-name">{userName}</h4>
@@ -84,11 +85,23 @@ const profileCard = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    userName: state.userName,
-    userNick: state.userNick,
-    location: state.location,
-    birth: state.birth
+    profile: state.picture.profile,
+    cover: state.picture.cover,
+    userName: state.profile.userName,
+    userNick: state.profile.userNick,
+    bio: state.profile.bio,
+    location: state.profile.location,
+    birth: state.profile.birth
   }
 }
 
-export default connect(mapStateToProps)(profileCard);
+const mapDispatchToProp = (dispatch) => {
+  return{
+    FlagEditDispatch(newBool){
+      const action = changeFlagEdit(newBool)
+      dispatch(action)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProp)(profileCard);
