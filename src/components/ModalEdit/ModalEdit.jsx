@@ -34,9 +34,9 @@ const ModalEdit = (props) => {
     if(event.files[0]){
       const fd = new FormData()
       fd.append('pic', event.files[0])
-      axios.post('http://localhost:4000/upload', fd)
+      axios.post('https://api.consulba.com.br/upload', fd)
         .then(res => {
-          props.CoverPicDispatch("http://localhost:4000/" + res.data.path.replace('\\', '/'))
+          props.CoverPicDispatch("https://api.consulba.com.br/" + res.data.path.replace('\\', '/'))
         })
       
     }
@@ -46,9 +46,9 @@ const ModalEdit = (props) => {
     if(event.files[0]){
       const fd = new FormData()
       fd.append('pic', event.files[0])
-      axios.post('http://localhost:4000/upload', fd)
+      axios.post('https://api.consulba.com.br/upload', fd)
         .then(res => {
-          props.ProfilePicDispatch("http://localhost:4000/" + res.data.path.replace('\\', '/'))
+          props.ProfilePicDispatch("https://api.consulba.com.br/" + res.data.path.replace('\\', '/'))
         })
       
     }

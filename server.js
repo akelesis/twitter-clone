@@ -28,6 +28,6 @@ app.post('/upload', upload.single('pic'), (req, res, next) => {
       res.send(file)
     
   })
-app.listen(4000, function() {
-    console.log('App running on port 4000');
+app.listen(5000, function() {
+    console.log('App running on port 5000');
 });
