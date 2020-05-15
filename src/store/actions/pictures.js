@@ -7,7 +7,7 @@ export function changeCoverPicture(newPic) {
 
 export function changeProfilePicture(newPic) {
     return {
-        type: 'CHANGED_PROFILE',
+        type: 'CHANGED_PROFILE_PIC',
         payload: newPic
     }
 }

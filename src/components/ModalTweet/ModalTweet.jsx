@@ -4,7 +4,6 @@ import {changeTweets} from '../../store/actions/tweets'
 import {connect} from 'react-redux'
 
 import "./ModalTweet.css";
-import ProfilePicture from "../../assets/profile_pic.jpg";
 
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -13,6 +12,7 @@ import { FiX } from "react-icons/fi";
 
 const ModalTweet = (props) => {
   const [post, setPost] = useState("")
+
   return (
     <div className="modal-tweet">
       <div className="modal-overlay" onClick={e => props.flagTweetDispatch(false)}></div>
@@ -31,7 +31,7 @@ const ModalTweet = (props) => {
         <div className="modal-body">
           <div className="modal-pic-box">
             <div className="modal-pic">
-              <img src={ProfilePicture} alt="" />
+              <img src={props.profile} alt="" />
             </div>
           </div>
           <div className="modal-text-area">
@@ -57,7 +57,8 @@ const ModalTweet = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-      post: state.post
+      post: state.post,
+      profile: state.picture.profile
   }
 }
 

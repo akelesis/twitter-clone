@@ -8,11 +8,12 @@ import { IconContext } from "react-icons";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
 
 
 
 const profileCard = (props) => {
-  const {profile, cover, userName, userNick, location, birth} = props
+  const {profile, cover, userName, bio, userNick, location, website, birth} = props
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
   return (
@@ -29,6 +30,9 @@ const profileCard = (props) => {
       <div className="profile-info">
         <h4 className="user-name">{userName}</h4>
         <p className="user-id">@{userNick}</p>
+        <div className="bio">
+        <p>{bio ? bio : ''}</p>
+        </div>
         <div className="personal-info">
           <div className="location-info">
             <IconContext.Provider
@@ -37,11 +41,18 @@ const profileCard = (props) => {
               <FaMapMarkerAlt /> <p>{location}</p>
             </IconContext.Provider>
           </div>
+          <div className="web-info">
+            {website ? <IconContext.Provider
+              value={{ style: { fontSize: "15px", color: "#779" } }}
+            >
+              <FaLink /> <p>{website}</p>
+            </IconContext.Provider> : ''}
+          </div>
           <div className="birth-info">
             <IconContext.Provider
               value={{ style: { fontSize: "15px", color: "#779" } }}
             >
-              <FaBirthdayCake /> <p>Born {months[parseInt(birth.slice(5,7)) - 1] + " " + parseInt(birth.slice(8,10)) + ", " + birth.slice(0,4)}</p>
+              <FaBirthdayCake /> <p>Born {months[parseInt(birth.slice(8,10)) - 1] + " " + parseInt(birth.slice(5,7)) + ", " + birth.slice(0,4)}</p>
             </IconContext.Provider>
           </div>
           <div className="join-info">
@@ -91,6 +102,7 @@ const mapStateToProps = (state) => {
     userNick: state.profile.userNick,
     bio: state.profile.bio,
     location: state.profile.location,
+    website: state.profile.website,
     birth: state.profile.birth
   }
 }

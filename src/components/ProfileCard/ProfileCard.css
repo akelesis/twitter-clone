@@ -71,6 +71,18 @@
     cursor: pointer;
 }
 
+.profile-info .web-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.profile-info .web-info p {
+    margin: 0 15px 0 10px;
+    color: #779;
+}
+
 .profile-info .user-name {
     margin: 0 20px;
     font-size: 20px;

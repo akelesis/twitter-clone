@@ -120,7 +120,7 @@ const ModalEdit = (props) => {
                 type="file"
                 name="profile-pic"
                 accept=".jpg, .png"
-                onChange={e => uploadProfilePic(e)}
+                onChange={e => uploadProfilePic(e.currentTarget)}
                 id="profile-pic"
                 style={{ display: "none" }}
               />
@@ -229,6 +229,7 @@ const mapStateToProps = (state) => {
     userNick: state.profile.userNick,
     bio: state.profile.bio,
     location: state.profile.location,
+    website: state.profile.website,
     birth: state.profile.birth,
   };
 };

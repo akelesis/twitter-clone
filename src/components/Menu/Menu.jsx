@@ -20,7 +20,7 @@ import { MdExpandMore } from "react-icons/md";
 const defaultStyle = { className: 'react-icons' };
 
 const Menu = (props) => {
-  const {userName, userNick} = props
+  const {userName, userNick, profile} = props
 
   return (
     <div className="main-menu" id="main-menu">
@@ -91,7 +91,9 @@ const Menu = (props) => {
           </li>
         </ul>
         <div className="user-button">
-          <div className="user-picture"></div>
+          <div className="user-picture">
+            <img src={profile} alt=""/>
+          </div>
           <div className="user-button-data">
             <h4 className="user-name">{userName}</h4>
             <p className="user-id">@{userNick}</p>
@@ -119,6 +121,7 @@ const mapDispatchToProp = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
+    profile: state.picture.profile,
     userNick: state.profile.userNick,
     userName: state.profile.userName
   }

@@ -42,10 +42,6 @@
     grid-template-areas: "main-menu feed side-panel";
   }
 
-  #side-panel {
-    display: none;
-  }
-
   #feed {
     margin-right: 10px;
   }

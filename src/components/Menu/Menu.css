@@ -105,6 +105,13 @@
     transition: background-color .3s;
 }
 
+.user-picture img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    
+}
+
 .user-button-hidden{
     display: none;
 }
