@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In order to enable picture upload, run `nodemon server.js` and create a folder called *uploads* in the root folder.
 
+## Some assumptions
+
+- Reactions to tweets aren't nessessary at this point.
+
+- Navigation through tweets sub topics (tweets and replys, media and likes) is a trivial aspect and it wouldn't make sense implementing once there aren't other users to connect with.
+
 ## Available Scripts
 
 In the project directory, you can run:
