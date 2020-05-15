@@ -39,7 +39,7 @@
     background-color: rgb(29, 161, 242);
     color: #fff;
     margin: 18px 0 0 332px;
-    display: none;
+    display: block;
 }
 
 .close-btn:hover {
@@ -53,14 +53,13 @@
 
 .search-options {
     position: absolute;
-    display: flex;
+    display: block;
     text-align: center;
     width: 340px;
     height: 100px;
     margin-left: 27px;
     box-shadow: 1px 1px 10px #777;
     background-color: #fff;
-    display: none;
     border-radius: 5px;
     z-index: 10;
 }

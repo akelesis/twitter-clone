@@ -103,7 +103,9 @@ const Menu = (props) => {
           </IconContext.Provider>
         </div>
         <div className="user-button-hidden">
-          <div className="user-picture"></div>
+          <div className="user-picture">
+            <img src={profile} alt=""/>
+          </div>
         </div>
       </div>
     </div>

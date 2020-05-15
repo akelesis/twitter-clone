@@ -20,6 +20,9 @@ const ModalEdit = (props) => {
   const [localWebsite, setWebsite] = useState(website);
   const [localBirth, setBirth] = useState(birth);
 
+
+
+  // Method to toggle the border color in the Biography section
   const toggleFocus = () => {
     let bioDiv = document.getElementById("bio-div");
     bioDiv.classList.contains("focus")
@@ -236,18 +239,22 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProp = (dispatch) => {
   return {
+    // Flag that toggles Edit Modal 
     FlagEditDispatch(newBool) {
       const action = changeFlagEdit(newBool);
       dispatch(action);
     },
+    // It sends the profile changes to state
     ProfileEditDispatch(newInfo) {
       const action = changeProfile(newInfo);
       dispatch(action);
     },
+    // Changes profile picture
     ProfilePicDispatch(newPic) {
       const action = changeProfilePicture(newPic)
       dispatch(action)
     },
+    // Changes cover picture
     CoverPicDispatch(newPic) {
       const action = changeCoverPicture(newPic)
       dispatch(action)

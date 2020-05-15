@@ -64,10 +64,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProp = (dispatch) => {
   return {
+    // Toggle modal tweet
     flagTweetDispatch(newBool){
       const action = changeFlagTweet(newBool)
       dispatch(action)
     },
+    // Send message to state
     tweetsDispatch(message){
       const action = changeTweets(message)
       dispatch(action)
