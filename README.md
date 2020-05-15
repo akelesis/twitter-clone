@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## NOTE:
+
+In order to enable picture upload, run `nodemon server.js` and create a folder called *uploads* in the root folder.
+
 ## Available Scripts
 
 In the project directory, you can run:
